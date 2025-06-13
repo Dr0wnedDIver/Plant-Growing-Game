@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfulhptxjo7xj"]
+
+[ext_resource type="Script" uid="uid://dxo3n47e8x6vo" path="res://Scripts/field_object.gd" id="1_008fu"]
+[ext_resource type="Texture2D" uid="uid://d0kb801fd8ev6" path="res://Assets/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled_Dirt_Wide_v2.png" id="2_7icvt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btlvh"]
+atlas = ExtResource("2_7icvt")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enqf4"]
+radius = 6.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_008fu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_btlvh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_enqf4")
