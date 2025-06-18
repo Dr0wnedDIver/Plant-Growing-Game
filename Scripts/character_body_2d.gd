@@ -3,23 +3,25 @@ extends CharacterBody2D
 
 const SPEED := 3000
 
-signal Player_position(CharacterPosition)
-signal character_direction(CharacterDirection)
+signal Player_position
+signal character_direction
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
 
 func check_movement(_delta):
 	#Get Input for Vector and create Movement
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * SPEED * _delta
 	character_direction.emit(direction)
+	#Check for action pressed
+	if Input.is_action_just_pressed("interact"):
+		#Turn Position into Signal to sent to other Scripts (Field,...)
+		var CharacterPosition: Vector2 = position
+		Player_position.emit(CharacterPosition)
 	
 
-func Field_Input():
-	if Input.is_action_just_pressed("interact"):
-		var CharacterPosition = position
-		Player_position.emit(CharacterPosition)
+#func Field_Input():
 
 
 
@@ -42,4 +44,4 @@ func _physics_process(_delta):
 	
 func _process(_delta):
 	animate_character_movement()
-	Field_Input()
+	

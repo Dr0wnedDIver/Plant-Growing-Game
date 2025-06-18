@@ -105,10 +105,10 @@ position = Vector2(2, 0)
 scale = Vector2(0.233034, 0.219052)
 zoom = Vector2(3, 3)
 
-[node name="Field_Object" parent="." instance=ExtResource("3_y3812")]
+[node name="Field_Obejct" parent="." instance=ExtResource("3_y3812")]
 position = Vector2(165, -92)
 
 [node name="Fields" type="Node2D" parent="."]
 
-[connection signal="Player_position" from="Character" to="Field_Object" method="_on_character_player_position"]
-[connection signal="character_direction" from="Character" to="Field_Object" method="_on_character_character_direction"]
+[connection signal="Player_position" from="Character" to="Field_Obejct" method="_on_character_player_position"]
+[connection signal="character_direction" from="Character" to="Field_Obejct" method="_on_character_character_direction"]
